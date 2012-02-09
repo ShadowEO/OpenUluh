@@ -9,9 +9,9 @@
 	 */
 	include("lib/jqmPhp.php");
 	include("../libs/XBMCHelper.class.php");
-
 	$XBMC = new XBMCHelper();
 	$jqm = new jqmPhp();
+	$jqm->head()->add('<meta name="viewport" content="width=device-width, initial-scale=1">');
 	$page = new jqmPage('episodes',array('data-add-back-btn'=>'true'));
 	$currentPage = basename(__FILE__);
 	switch($_GET['ac'])

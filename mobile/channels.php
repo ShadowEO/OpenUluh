@@ -13,6 +13,7 @@
 	$jqm = new jqmPhp();
 	$jqm->head()->title($config['AppTitle']);
 	$page = new jqmPage('channels');
+	$jqm->head()->add('<meta name="viewport" content="width=device-width, initial-scale=1">');
 	$page->theme('b')->title($config['AppTitle']);
 	$page->header()->theme('a');
 	$nav = $page->header()->add(new jqmNavbar(), true);

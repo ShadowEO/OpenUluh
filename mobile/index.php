@@ -14,6 +14,8 @@
 	$XBMC = new XBMCHelper();	
 	$jqm = new jqmPhp();
 	$jqm->head()->title($config['AppTitle']);
+	$jqm->head()->add("<meta name='viewport' content='width=device-width, initial-scale=1'/>");
+
 //	$jqm->head()->add(new jqmLink("themes/PandoraTV.min.css"));
 	$page = new jqmPage('index');
 	$page->theme('b')->title($config['AppTitle']);

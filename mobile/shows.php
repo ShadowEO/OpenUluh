@@ -12,6 +12,8 @@
 	include("../config/application.php");
 	$XBMC = new XBMCHelper();
 	$jqm = new jqmPhp();
+	$jqm->head()->add('<meta name="viewport" content="width=device-width, initial-scale=1"/>');
+	$jqm->head()->add('<style> .ui-content { padding: 0px; }</style>');
 	if($_GET['ac'] == "si")
 	{
 		$page = new jqmPage('shows',array('data-add-back-btn=true'));
@@ -29,6 +31,7 @@
 			$page->theme('b')->title('Shows');
 			$page->header()->theme('a');		
 			$nav = $page->header()->add(new jqmNavbar(), true);
+//			$page->AddContent('<div style="padding: 15px;">');
 			$nav->add(new jqmButton('', '', '', 'a', "index.php" , 'Home', '', false));
 			$nav->add(new jqmButton('', '', '', 'a', 'shows.php?ac=sl', 'All Shows', '', false));
 			$nav->add(new jqmButton('', '', '', 'a', '#', 'Channels', '', true));
@@ -41,6 +44,7 @@
 			$list->AddSplit($v['SeriesName'],'shows.php?ac=si&id='.$v['idShow'],'#episodes.php?ac=el&id='.$v['idShow'],$XBMC->CountEpisodes($v['idShow']));
 			}
 			$page->AddContent($list);
+//			$page->AddContent("</div>");
 			$jqm->AddPage($page);
 			echo($jqm);			
 			break;
@@ -68,8 +72,8 @@
 			$showInfo = $XBMC->RetrieveShowInfo($_GET['id']);
 			$page->theme('b')->title($showInfo['SeriesName']);
 //			$page->header()->addButton('Back',"#",'a', 'arrow-l')->addAttribute("rel","back");
-			$page->AddContent('<img src="../getimage.php?ac=sb&ri=0&id='.$showInfo['idShow'].'" />');			
-
+			$page->AddContent('<img src="../getimage.php?ac=sb&ri=0&id='.$showInfo['idShow'].'" style="width: 100%; height: auto; margin-bottom: 1px solid #333;" />');			
+			$page->AddContent('<div style="padding: 15px">');
 			$page->AddContent('<h4>'.$showInfo['SeriesDesc']."</h4>");
 			$list = new jqmListviem();
 			$list->inset(true)->theme('a');
@@ -90,6 +94,7 @@
 				$list->AddIcon("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;S".$v['season']."E".$v['episode'].": ".$v['EpisodeName'],'episodes.php?ac=ei&id='.$v['idEpisode'],'../getimage.php?ac=et&ri=1&w=400&h=200&id='.$v['idEpisode']);
 			}
 			$page->AddContent($list);
+			$page->AddContent("</div>");
 			$jqm->AddPage($page);
 			echo($jqm);			
 			break;
