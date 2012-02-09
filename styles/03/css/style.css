@@ -1,0 +1,235 @@
+/* ----------------------------------------------------------------------------------------------------------
+
+    Output device: screen, projection
+
+    Author:     Nuvio (www.nuvio.cz)
+    Update:     2008-07-16, 19:25 GMT+1
+    Version:    2.2.6 (2008-07-13, 14:28 GMT+1)
+
+    Structure:
+        display; position; z-index; float; clear; width; height; overflow; margin; padding; border; background; align; font;
+
+    Content:
+
+        1) HTML tags
+        2) HTML styles
+        3) Layout
+        4-1) Page: Homepage
+        5) Others
+
+---------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------------------------------
+1) HTML tags
+---------------------------------------------------------------------------------------------------------- */
+
+body {background:url("../design/bg.gif") 50% 0 repeat-y; font:0.8em/1.5 "arial", sans-serif;}
+
+a {color:#00F;}
+a:hover {color:#F00;}
+
+h1, h2, h3, h4, h5, h6, p, address, blockquote, table, dl, fieldset {margin:15px 0;}
+
+h3 {font-size:140%;}
+
+/* ----------------------------------------------------------------------------------------------------------
+2) HTML styles
+---------------------------------------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------------------------------------------------
+3) Layout
+---------------------------------------------------------------------------------------------------------- */
+
+#main {width:940px; margin:0 auto; overflow:hidden;}
+
+	#header {width:940px; height:95px; overflow:hidden; background:url("../design/header.gif") 0 0 no-repeat;}
+
+        #logo {position:relative; width:468px; height:80px; overflow:hidden; margin:0 0 0 20px; padding:0; font-size:300%;}
+        #logo span {display:block; position:absolute; top:0; left:0; z-index:1; width:100%; height:100%; margin:0; padding:0; background:url("../tmp/logo.gif") 0 0 no-repeat; cursor:pointer;}
+
+    #tray {padding:10px 0 15px 10px; background:url("../design/tray.gif") 0 100% no-repeat;}
+
+        #tray ul {margin:0; list-style:none;}
+        #tray ul li {display:inline;}
+        #tray ul li a {display:block; float:left; padding:0 15px 0 10px; background:url("../design/tray-separator.gif") 100% 50% no-repeat; text-decoration:underline;}
+        #tray ul li a:hover {text-decoration:none;}
+        #tray ul li#tray-active a {font-weight:bold; text-decoration:none;}
+
+    #cols {position:relative; margin:10px 0; background:url("../design/cols.gif") 0 0 repeat-y;}
+
+    	#content {float:right; width:740px; overflow:hidden;}
+
+            #content-left {float:left; width:470px;}
+            #content-left-in {padding:0 10px;}
+
+            #content-right {float:right; width:260px;}
+
+    	#aside {float:left; width:190px; overflow:hidden;}
+        #aside-top {width:190px; height:5px; background:url("../design/aside-top.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+        #aside-bottom {position:absolute; bottom:0; left:0; width:190px; height:5px; background:url("../design/aside-bottom.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+
+            .nav {margin:0; list-style:none;}
+            .nav li {display:inline;}
+            .nav li a {display:block; padding:7px 10px 7px 30px; background:url("../design/nav-link.gif") 15px 13px no-repeat;}
+            .nav li#nav-active a {background:url("../design/nav-active.gif") 15px 13px no-repeat; text-decoration:none; font-weight:bold;}
+            .nav #nav-active ul li a {padding-left:45px; background:url("../design/nav-sub.gif") 30px 10px no-repeat;}
+            .nav a:hover {text-decoration:none;}
+
+            #search {position:relative; height:22px; margin:0 -15px; padding:15px; text-align:center;}
+            #search-input {position:absolute; top:15px; left:15px; width:100px; height:22px; border:0;}
+            #search-submit {position:absolute; top:15px; left:115px; width:60px; height:22px; border:0;}
+            #search-input, #search-submit {font-size:100%; font-family:"arial",sans-serif;}
+
+            #aside h4 {font-size:100%;}
+            #aside h4.margin {margin:15px 0 5px 0;}
+
+	#footer {clear:both; padding:20px 0; background:url("../design/footer.gif") 0 0 repeat-x; font-size:85%;}
+	#footer p {margin:0;}
+	#footer a:hover {text-decoration:none;}
+
+/* ----------------------------------------------------------------------------------------------------------
+4-1) Page: Homepage
+---------------------------------------------------------------------------------------------------------- */
+
+#topstory-top {width:470px; height:5px; background:url("../design/topstory-top.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+#topstory-bottom {width:470px; height:5px; background:url("../design/topstory-bottom.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+#topstory {padding:5px 10px 10px 10px;}
+
+    #topstory-img {float:left; width:180px;}
+    #topstory-img img {display:block;}
+    #topstory-desc {float:right; width:255px;}
+
+        #topstory-desc h2 {margin:0; font-size:140%; font-weight:normal;}
+        #topstory-desc .info {margin:0; font-size:85%;}
+
+#topstory-list {padding:10px 0 5px 10px; overflow:hidden}
+#topstory-list img {display:block; float:left; padding-right:10px;}
+#topstory-list img.last {margin-right:0;}
+
+.article {margin-bottom:10px; padding-bottom:10px; background:url("../design/dot.gif") 0 100% repeat-x;}
+.article .article-img {float:left; width:180px;}
+.article .article-img img {display:block;}
+.article .article-desc {float:right; width:255px;}
+
+    .article .article-desc h3 {margin:0; font-size:140%; font-weight:normal;}
+    .article .article-desc .info {margin:0; font-size:85%;}
+    .article .article-desc p.nomb {margin-top:8px; text-align:justify;}
+
+.box-01-top {width:260px; height:5px; margin-top:5px; background:url("../design/box-01-top.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+.box-01-top-b {padding:5px 10px 15px 10px; background:url("../design/box-01-top-b.gif") 0 100% no-repeat;}
+.box-01-top-b .f-left {text-transform:uppercase;}
+.box-01-top-b .f-right {padding-top:2px; font-size:85%;}
+.box-01-bottom {width:260px; height:11px; background:url("../design/box-01-bottom.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+.box-01 {padding:5px; background:url("../design/box-01.gif") 0 0 repeat-y;}
+.box-01 .bg {margin:10px 0; padding:10px 0;}
+
+    .news {margin:0;}
+    .news dt {display:block; float:left; width:50px; font-weight:bold; text-align:center; line-height:1.2;}
+    .news dt span {font-size:140%;}
+    .news dd {display:block; float:left; width:190px; font-size:85%; line-height:1.6;}
+
+.box-02-top {width:260px; height:5px; margin-top:10px; background:url("../design/box-02-top.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+.box-02-top-b {padding:5px 10px 15px 10px; background:url("../design/box-02-top-b.gif") 0 100% no-repeat; text-transform:uppercase;}
+.box-02-bottom {width:260px; height:11px; background:url("../design/box-02-bottom.gif") 0 0 no-repeat; font-size:0; line-height:0;}
+.box-02 {padding:5px 15px; background:url("../design/box-02.gif") 0 0 repeat-y;}
+
+    .mostreaded {margin:0; list-style:none;}
+    .mostreaded span {font-size:85%;}
+
+/* ----------------------------------------------------------------------------------------------------------
+5) Others
+---------------------------------------------------------------------------------------------------------- */
+
+#aside .padding {padding:10px 15px;}
+
+.more {padding-right:15px; background:url("../design/arrow.gif") 100% 50% no-repeat;}
+
+.rss {padding-left:22px; background:url("../design/rss.gif") 0 50% no-repeat;}
+
+/* ----------------------------------------------------------------------------------------------------------
+
+    Output device: screen, projection
+
+    Author:     Nuvio (www.nuvio.cz)
+    Update:     2008-07-16, 19:25 GMT+1
+    Version:    2.2.6 (2008-07-13, 14:28 GMT+1)
+
+    Structure:
+        display; position; z-index; float; clear; width; height; overflow; margin; padding; border; background; align; font;
+
+    Content:
+
+        1) HTML tags
+        2) HTML styles
+        3) Layout
+        4-1) Page: Homepage
+        5) Others
+
+---------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------------------------------
+1) HTML tags
+---------------------------------------------------------------------------------------------------------- */
+
+body {background-color:#ddddd4; color:#000}
+
+a {color:#194B8C;}
+a:hover {color:#000;}
+
+h3.title {border-bottom:1px solid #E1E1D9; color:#7A7B60;}
+
+/* ----------------------------------------------------------------------------------------------------------
+2) HTML styles
+---------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------------------------------
+3) Layout
+---------------------------------------------------------------------------------------------------------- */
+
+#main {background-color:#FFF;}
+
+#header {background-color:#969678; color:#FFF;}
+#header a {color:#FFF;}
+
+#tray {background-color:#2f2f2f; color:#FFF;}
+#tray a {color:#FFF;}
+#tray li#tray-active a {color:#94c9e2;}
+
+.nav a {border-top:1px solid #e5e5e5; background-color:#d0d0d0 !important; color:#000 !important;}
+.nav #nav-active a {background-color:#7A7B60 !important; color:#FFF !important;}
+.nav #nav-active ul li a {border-top:1px solid #525252; background-color:#2f2f2f !important; color:#94c9e2 !important;}
+
+#search {border-top:1px solid #f2f2f2; background-color:#d0d0d0;}
+#search-input {background:#FFF;}
+#search-submit {background:#A0A186; color:#FFF;}
+
+#footer, #footer a {color:#323232;}
+
+/* ----------------------------------------------------------------------------------------------------------
+4-1) Page: Homepage
+---------------------------------------------------------------------------------------------------------- */
+
+#topstory-top, #topstory {background-color:#D7ECF4;}
+#topstory-desc .info, #topstory-desc .info a, .article .article-desc .info, .article .article-desc .info a {color:#5F5F5F;}
+#topstory-desc .info a:hover, .article .article-desc .info a:hover {color:#2F2F2F;}
+#topstory-desc h2 a {color:#194B8C;}
+#topstory-desc h2 a:hover {color:#000;}
+#topstory-list {border-top:1px solid #EBF4F8; background-color:#C2DFEC;}
+
+.box-01-top, .box-01-top-b {background-color:#A0A186; color:#FFF;}
+.box-01-top-b .f-right {color:#ECECE7;}
+.box-01 .bg {border-top:1px solid #D5D6CB; border-bottom:1px solid #D5D6CB; background:#ECECE7;}
+
+    .news dt {color:#5F604B;}
+    .news dd span {color:#5F5F5F;}
+
+.box-02-top, .box-02-top-b {background-color:#D7ECF4; color:#44A1CA;}
+
+    .mostreaded span {color:#5F5F5F;}
+
+/* ----------------------------------------------------------------------------------------------------------
+5) Others
+---------------------------------------------------------------------------------------------------------- */
+
+.rss {color:#000;}

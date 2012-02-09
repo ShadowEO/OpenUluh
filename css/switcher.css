@@ -1,0 +1,15 @@
+/* ----------------------------------------------------------------------------------------------------------
+
+    Output device: screen, projection
+
+    Author:     Nuvio (www.nuvio.cz)
+    Update:     2008-07-16, 19:25 GMT+1
+    Version:    2.2.6 (2008-07-13, 14:28 GMT+1)
+
+    Structure:
+        display; position; z-index; float; clear; width; height; overflow; margin; padding; border; background; align; font;
+
+---------------------------------------------------------------------------------------------------------- */
+
+#header {position:relative;}
+#header #switcher {position:absolute; top:38px; right:20px; margin:0;}

@@ -1,0 +1,71 @@
+What's new in 0.1.4-unstable:
+	New better looking UI instead of the ugly white eyesore it was.
+	New UI uses Fanart instead of Banners.
+
+In next version (0.1.5-unstable):
+	Pagination in new UI for Shows List.
+	Pagination in new UI for Episodes List.
+
+Why are there so many unstables?
+	I often need people to test features that I don't have off-hand ability to do so. When a feature's working status is unknown, I continue the unstable branch until it is known or fixed.
+	When the unstable version has everything known working, I will merge it with the SVN trunk and deploy a new release package to the project's downloads page.
+	You will no longer see the previous release.
+
+How can I tell what version of OpenUluh I have?
+	Despite the naming convention of the archives and branches? I guess I will start adding version numbers to the files soon..
+
+What is OpenUluh:
+	OpenUluh is a free, open-source personal intranet solution released under the GPLv3 license. It works by using your XBMC Installation's MySQL database.
+	
+Installing aka OpenUluh:
+	Requirements:
+		XAMPP, LAMPP or MAMP (Depending on your Operating System) installed on the same computer as your XBMC instance.
+		Your videos must be in MP4 format at this time. I may add support for other HTML5 codecs later but for now it is MP4 only.
+		XBMC set up to store information in a MySQL database. (Search google for this, at the time of writing, I am offline and cannot provide a direct link.)
+		If files and XBMC are on separate computers, Install this to your XBMC machine (required.), DO NOT install this on any other machine, this uses real-path directories to stream and get thumbnails and banners. Also if you use Samba or Windows Networking to access your files, please mount them as a real path on your system and update your library.
+		Windows Users: If your videos are on a NAS or separate computer, share your TV folder and use Map Network Drive by right clicking on Computer. Then add this new Drive as a source in XBMC, remove your smb:// share and then update your library.
+		PHP must have GD Support (Used for resizing images and banners)
+
+	Installation:
+		1) Extract OpenUluh-<release version>.zip to your webserver's htdocs
+		2) Read the next section. :D
+
+	Configuring:
+		1) Open libs/XBMCHelper.class.php in your favorite text editor or IDE
+		2) follow the configuration instructions at the beginning of the file.
+		3) If you have already setup XBMC, you can test it now:
+			visit: http://<webserver>/
+			You should see something similar to the screenshots only with your content.
+
+	Using:
+		PCs/Desktops: http://<webserver>/
+		iPhone/Android/iPad/etc: http://<webserver>/mobile
+
+FAQ:
+	Q) Does OpenUluh stream internet videos?
+	A) No, OpenUluh was not made to stream videos already on the internet. It was made to stream XBMC TV Show content to devices that otherwise would need you to copy the video file onto.
+
+	Q) Does OpenUluh stream movies or music?
+	A) No, it does not. If you want to stream music to your device, try out Google Music. The reason it does not do movies is because I do not have any movies on my eMac and did not see the reason to have movies stream. Probably in the next version or if someone makes a modification.
+
+	Q) Can I remove the copyright in the footer?
+	A) No, You cannot remove the copyr‎ight. This was released under the GPLv3, please respect the license and me by leaving my copyright and credit within the code.
+	
+	Q) Can I distribute OpenUluh with my package?
+	A) Yes, you can as long as you retain credit to me for OpenUluh and remember to give the XBMC developers their credit for developing such a wonderful cross-platform media center.
+
+	Q) Can I use OpenUluh for Commercial Use?
+	A) I would prefer you wouldn't. This was not made for Commercial Use and has no reason to be used as such. If your a business, please use more Commercial inclined tools.
+
+	Q) Did you have fun creating OpenUluh?
+	A) Yes and No, there were some times I literally raged at the computer. You should've seen my Facebook Wall ^_^; However, after I figured out the thumbnail hashing from a thread on the forums and got started on the mobile interface, it got to be really fun.
+
+	Q) Can I help?
+	A) Of course, if your looking to work on, or even maintain the OpenUluh project, shoot an email to dreamcaster23@gmail.com with the subject "[OpenUluh] Project Maintainer Application" and tell me why you would be a great addition to the team.
+	
+	Q) Even if I'm not on the OpenUluh project, can I still submit patches and modifications?
+	A) Yes, you can post modifications or patches on the Issues tab in the Google Code project. If your patch fixes a major issue or implements something I don't have time to do, I'll probably merge it with the source.
+
+Enjoy, If you have any Bug Reports or Suggestions, please contact me through the issues tab on the Google Code Project. Thank you.
+		
+
