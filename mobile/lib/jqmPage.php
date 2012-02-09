@@ -64,7 +64,7 @@ class jqmPage extends jqmTag {
         if (!$this->_footer) $this->_footer = $this->add(new jqmFooter(), true);
         $this->_role = $this->attribute('data-role', 'page', true);
         $this->_fullscreen = $this->attribute('data-fullscreen', (($fullscreen)?'true':''), true);
-        $this->_nobackbtn = $this->attribute('data-nobackbtn', (($nobackbtn)?'true':''), true);
+        $this->_nobackbtn = $this->attribute('data-add-back-btn', (($nobackbtn)?'true':''), true);
     }
     /**
      * Gets the content of the page (jqmContent).

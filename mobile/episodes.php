@@ -12,7 +12,7 @@
 	$XBMC = new XBMCHelper();
 	$jqm = new jqmPhp();
 	$jqm->head()->add('<meta name="viewport" content="width=device-width, initial-scale=1">');
-	$page = new jqmPage('episodes',array('data-add-back-btn'=>'true'));
+	$page = new jqmPage('episodes',array('data-add-back-btn=true'));
 	$currentPage = basename(__FILE__);
 	switch($_GET['ac'])
 	{
@@ -28,7 +28,7 @@
 			$Shows = $XBMC->RetrieveEpisodesForShow($_GET['id']);
 			foreach($Shows as $k=>$v)
 			{	
-			$list->AddIcon("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;S".$v['season']."E".$v['episode'].": ".$v['EpisodeName'],'episodes.php?ac=ei&id='.$v['idEpisode'],'../getimage.php?ac=et&ri=1&w=400&h=200&id='.$v['idEpisode']);
+			$list->AddIcon("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;S".$v['season']."E".$v['episode'].": ".$v['EpisodeName'],'episodes.php?ac=ei&id='.$v['idEpisode'],'../getimage.php?ac=et&ri=1&w=400&h=400&id='.$v['idEpisode']);
 			}
 
 			$page->AddContent($list);
@@ -46,7 +46,9 @@
 			$externalAtt = new jqmAttribute("rel","external");
 			$btnWatch->addAttribute($externalAtt);
 			$page->AddContent($btnWatch);
-			$page->AddContent(new jqmButton('','','','a', '../download.php?e='.$_GET['id'], 'Download', 'arrow-r', false, true));
+			$btnDownload = new jqmButton('','','','a', '../download.php?e='.$_GET['id'], 'Download', 'arrow-r', false, true);
+			$btnDownload->addAttribute($externalAtt);
+			$page->AddContent($btnDownload);
 			$description = new jqmText("<br/><h3>".$EpisodeInfo['EpisodeDesc']."</h3><br/><h4>Channel: ".$EpisodeInfo['channel']."; Rating: ".$EpisodeInfo['rating']."; Original Air Date: ".$EpisodeInfo['airdate']."</h4>");
 			$cg->Add($description);
 			$page->AddContent($cg);

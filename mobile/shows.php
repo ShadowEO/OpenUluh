@@ -33,8 +33,8 @@
 			$nav = $page->header()->add(new jqmNavbar(), true);
 //			$page->AddContent('<div style="padding: 15px;">');
 			$nav->add(new jqmButton('', '', '', 'a', "index.php" , 'Home', '', false));
-			$nav->add(new jqmButton('', '', '', 'a', 'shows.php?ac=sl', 'All Shows', '', false));
-			$nav->add(new jqmButton('', '', '', 'a', '#', 'Channels', '', true));
+			$nav->add(new jqmButton('', '', '', 'a', '#', 'All Shows', '', false));
+			$nav->add(new jqmButton('', '', '', 'a', 'channels.php?ac=cl', 'Channels', '', true));
 			$list = new jqmListviem();
 			$list->inset(true)->theme('a');
 			$list->addDivider('Shows from '.$_GET['cn'], $XBMC->CountShowsByChannel($_GET['cn']))->dividerTheme('a')->countTheme('b');

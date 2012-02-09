@@ -11,7 +11,7 @@
 		$XBMC = new XBMCHelper();
 		$videoInformation = $XBMC->GetEpisodeInformation($_GET['e']);
 		$file = $videoInformation['filePath'];
-
+		
 		$pathparts = pathinfo($file);
 		$exten = $pathparts['extension'];
 		switch($exten)
@@ -29,8 +29,9 @@
 				} else {
 					$command = "ffmpeg -i $file -vcodec mp4 -acodec aac pipe:1";
 				}
+				ini_set("maximum_execution_time", "0"); /* Let's turn off the time limit for this... This isn't needed for MP4 files since those already do progressive download. This on the other hand... it encodes, buffers, spits out, rinse, lather and repeat */
 				/* Credit for below code to 4poc at https://github.com/4poc/php-live-transcode/blob/master/stream.php */
-				/* -- BEGIN FFmpeg Patch */				
+				/* -- BEGIN FFmpeg Patch */								
 				define('P_STDIN', 0);
 				define('P_STDOUT', 1);
 				define('P_STDERR', 2);					
