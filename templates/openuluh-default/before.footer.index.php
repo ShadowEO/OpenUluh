@@ -1,6 +1,3 @@
-	<?php 
-		ini_set("display_errors","on");
-	?>
 	<hr class="noscreen" />
         <div id="content-right">
         </div> <!-- /content-right -->

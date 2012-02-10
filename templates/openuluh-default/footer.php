@@ -1,3 +1,4 @@
+
 <?php
 	/*
 	 * OpenUluh
@@ -18,7 +19,6 @@
 	 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	 */
 ?>
-
    <div id="footer">
 
         <!-- Do you want remove this backlinks? Look at www.nuviotemplates.com/payment.php -->

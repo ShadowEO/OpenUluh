@@ -102,6 +102,8 @@
         				</div> <!-- /article -->		
 		<?php
 		}
+		?>
+		<p class="t-right"><?php
 		$range = 4;
 		for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++)
 		{
@@ -117,6 +119,7 @@
 				} // end else
 			} // end if 
 		} // end for
+		?></p><?php
 	} else {
 		echo("<div class='article box'><center><h2>There are no episodes for this show yet. Probably still downloading..</h2></center></div>");
 	}

@@ -18,6 +18,7 @@
 	 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	 */
 		
+	
 
 	$Channelflag = false;		
 //	ini_set('display_errors', 'on');	
@@ -144,7 +145,9 @@
 					break;					
 			
 		}
-				$range = 4;
+		?>
+		<p class="t-right"><?php		
+		$range = 4;
 		for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++)
 		{
 			if (($x > 0) && ($x <= $totalpages)) {
@@ -159,8 +162,8 @@
 				} // end else
 			} // end if 
 		} // end for
+		?></p>
 		
-?>
                 </div> <!-- /content-left-in -->
 
             </div> <!-- /content-left -->

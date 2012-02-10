@@ -3,24 +3,14 @@ echo("<?xml version='1.0'?>");
 ?>
 <?php	
 	/*
-	 * OpenUluh
+	 * OpenUluh version 0.0.1
 	 *
+	 * Copyright (c) 2012-* ShadowEO / Toxus Communications Systems
+	 * Licensed under the GPLv3
+	 * Below for dropdownmenu CSS belongs to Dynamic Drive CSS Library
 	 * Website Layout and CSS belongs to Nuvio [www.nuvio.cz]
-	 * Copyright (c) 2012-* ShadowEO / Toxus Communications Systems <dreamcaster23@gmail.com>
-	 * GPG Key ID: AC5EEA2B
-	 *
-	 * This program is free software: you can redistribute it and/or modify
-	 * it under the terms of the GNU General Public License as published by
- 	 * the Free Software Foundation, either version 3 of the License, or
- 	 * (at your option) any later version.
- 	 *
-	 * This program is distributed in the hope that it will be useful,
-	 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-	 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	 * GNU General Public License for more details.
-	 * 
-	 * You should have received a copy of the GNU General Public License
-	 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	 * You are free to modify, distribute or redistribute this code as you please
+	 * so long as the above copyright notice remains intact.
 	 */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

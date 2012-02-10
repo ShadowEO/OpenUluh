@@ -27,7 +27,22 @@
 		$XBMC = new XBMCHelper();
 		$videoInformation = $XBMC->GetEpisodeInformation($_GET['e']);
 		$file = $videoInformation['filePath'];
-		
+		$streampath = parse_url($file);
+		if(isset($streampath['scheme']) && $streampath['scheme'] == "smb://")
+		{
+			// We found that the filepath includes smb://, by this we have determined a 
+			// Synchronized XBMC installation and substitute direct paths for searching for the file
+			// In the library.
+			$di = new RecursiveDirectoryIterator($XBMC->XBMCTVLibraryPath);
+			foreach(new RecursiveIteratorIterator($di) as $filename=>$cur)
+			{
+				if($cur->getFilename() == $videoInformation['filename'])
+				{
+					$file = $filename;
+					break;
+				}
+			}
+		}
 		$pathparts = pathinfo($file);
 		$exten = $pathparts['extension'];
 		switch($exten)

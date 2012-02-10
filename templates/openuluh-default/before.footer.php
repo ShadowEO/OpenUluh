@@ -1,4 +1,5 @@
 <?php
+
 	/*
 	 * OpenUluh
 	 * Copyright (c) 2012-* ShadowEO / Toxus Communications Systems <dreamcaster23@gmail.com>
@@ -17,6 +18,7 @@
 	 * You should have received a copy of the GNU General Public License
 	 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	 */
+		
 ?>
 	   <hr class="noscreen" />
         </div> <!-- /content -->

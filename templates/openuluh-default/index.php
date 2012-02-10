@@ -18,6 +18,7 @@
 	 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	 */
 		
+	ini_set('display_errors','on');
 ?>
     <div id="cols" class="box">
 
