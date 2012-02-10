@@ -1,0 +1,4 @@
+Added new configuration option in Libs/XBMCHelper.class.php
+
+XBMCTVLibraryPath
+Please set this if you use Samba to synchronize your Library
