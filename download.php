@@ -8,6 +8,7 @@
 	 * so long as the above copyright notice remains intact.
 	 */
 	
+	/* TODO: Filename support and path substitution on Samba Shares */
 
 	/* PROPOSED: merge to stream.php */
 	

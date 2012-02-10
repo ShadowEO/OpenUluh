@@ -7,6 +7,11 @@
 	 * You are free to modify, distribute or redistribute this code as you please
 	 * so long as the above copyright notice remains intact.
 	 */
+
+	/*
+	 * TODO: Add recursive searching using path in XBMCHelper.class.php if filepath contains smb://
+	 */
+
 		require('libs/XBMCHelper.class.php');
 		$XBMC = new XBMCHelper();
 		$videoInformation = $XBMC->GetEpisodeInformation($_GET['e']);
