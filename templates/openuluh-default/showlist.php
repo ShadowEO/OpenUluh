@@ -10,7 +10,7 @@
 
 	$Channelflag = false;		
 //	ini_set('display_errors', 'on');	
-	if($_GET['c'])
+	if(isset($_GET['c']))
 	{
 		$channel = urldecode($_GET['c']);
 		$Channelflag = true;
@@ -31,9 +31,31 @@
 	switch($Channelflag)
 	{
 		case true:
-			$shows = $XBMC->SortShowsByChannel($channel);			
+			$showcount = $XBMC->CountShowsByChannel($channel);
+			
+			$totalpages = ceil($showcount / $XBMC->pagination_perpage);		
+			if(isset($_GET['pn']) && is_numeric($_GET['pn']))
+			{
+				$currentpage = (int) $_GET['pn'];
+				if($currentpage > $totalpages)
+				{
+					$currentpage = $totalpages;
+				}
+				if($currentpage < 1)
+				{
+					$currentpage = 1;
+				}
+			} else {
+				$currentpage = 1;	
+			}
+			$offset = ($currentpage - 1) * $XBMC->pagination_perpage;		
+			if(!$offset)
+			{
+				$offset = "0";
+			}
+			$shows = $XBMC->SortShowsByChannel($channel, $offset);
 ?>
-			<h3 class="title"><?php echo($XBMC->CountShowsByChannel($channel)); ?> Shows</h3>
+			<h3 class="title"><?php echo($showcount); ?> Shows</h3>
 			<?php
 				foreach($shows as $k=>$v)
 				{
@@ -60,9 +82,30 @@
 				break;
 			case false:
 
-			$shows = $XBMC->RetrieveShowList();
+			$showcount = $XBMC->CountShows();
+			$totalpages = ceil($showcount / $XBMC->pagination_perpage);		
+			if(isset($_GET['pn']) && is_numeric($_GET['pn']))
+			{
+				$currentpage = (int) $_GET['pn'];
+				if($currentpage > $totalpages)
+				{
+					$currentpage = $totalpages;
+				}
+				if($currentpage < 1)
+				{
+					$currentpage = 1;
+				}
+			} else {
+				$currentpage = 1;	
+			}
+			$offset = ($currentpage - 1) * $XBMC->pagination_perpage;		
+			if(!$offset)
+			{
+				$offset = "0";
+			}
+			$shows = $XBMC->RetrieveShowList($offset);
 			?>			
-						<h3 class="title"><?php echo($XBMC->CountShows()); ?> Shows</h3>			
+						<h3 class="title"><?php echo($showcount); ?> Shows</h3>			
 			<?php
 			
 					foreach($shows as $k=>$v)
@@ -90,6 +133,22 @@
 					break;					
 			
 		}
+				$range = 4;
+		for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++)
+		{
+			if (($x > 0) && ($x <= $totalpages)) {
+				// if we're on current page...
+				if ($x == $currentpage) {
+				// 'highlight' it but don't make a link
+				echo " [<b>$x</b>] ";
+				// if not current page...
+				} else {
+				// make it a link
+				echo " <a href='index.php?p=shows&pn=$x'>$x</a> ";
+				} // end else
+			} // end if 
+		} // end for
+		
 ?>
                 </div> <!-- /content-left-in -->
 

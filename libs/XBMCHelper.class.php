@@ -13,6 +13,7 @@
 		// Change this to point to your XBMC userdata path (For grabbing thumbnails and banners)
 		public $XBMCUserDataPath = '/Users/toxus/Library/Application Support/XBMC/userdata/';
 		
+		public $pagination_perpage = 3;
 		// Change these to reflect XBMC's MySQL information.
 		public $mySQLServer = 'localhost:8889';
 		public $mySQLusername = 'root';
@@ -40,9 +41,14 @@
 			$this->mysqlConn = $conn;
 		}
 
-		function RetrieveEpisodesforShow($ShowID)
+		function RetrieveEpisodesforShow($ShowID, $offset = 0)
 		{
-			$query = mysql_query("SELECT * FROM episodeview WHERE idShow = '$ShowID' ORDER BY  `episodeview`.`premiered` DESC;");
+			if($offset != null)
+			{
+				$query = mysql_query("SELECT * FROM `episodeview` WHERE `idShow`=$ShowID ORDER BY `c05` DESC LIMIT $offset, ".$this->pagination_perpage.";");
+			} else {
+				$query = mysql_query("SELECT * FROM  `episodeview` WHERE  `idShow` =$ShowID ORDER BY  `c05` DESC ");
+			}
 			$i = 0;
 			$array = false;			
 			while ($row = mysql_fetch_object($query))
@@ -51,7 +57,7 @@
 				$array[$i]['EpisodeName'] = $row->c00;
 				$array[$i]['EpisodeDesc'] = $row->c01;
 				$array[$i]['SeriesName'] = $row->strTitle;
-				$array[$i]['airdate'] = $row->premiered;
+				$array[$i]['airdate'] = $row->c05;
 				$array[$i]['rating'] = $row->mpaa;
 				$array[$i]['season'] = $row->c12;
 				$array[$i]['episode'] = $row->c13;
@@ -104,9 +110,14 @@
 		
 		
 
-		function RetrieveShowList()
+		function RetrieveShowList($offset = null)
 		{
-			$query = mysql_query("SELECT * FROM tvshow");
+			if($offset != null)
+			{
+				$query = mysql_query("SELECT * FROM tvshow LIMIT $offset, ".$this->pagination_perpage.";");
+			} else {
+				$query = mysql_query("SELECT * FROM tvshow");
+			}
 			$i = 0;
 			while ($row = mysql_fetch_object($query))
 			{
@@ -122,9 +133,14 @@
 			return $array;
 		}
 
-		function SortShowsByChannel($channelName)
+		function SortShowsByChannel($channelName, $offset = null)
 		{
-			$query = mysql_query("SELECT * FROM tvshow WHERE c14 = '".mysql_escape_string($channelName)."';");
+			if($offset != null)
+			{
+				$query = mysql_query("SELECT * FROM tvshow WHERE c14 = '".mysql_escape_string($channelName)."' LIMIT $offset, ".$this->pagination_perpage.";");
+			} else {
+				$query = mysql_query("SELECT * FROM tvshow WHERE c14 = '".mysql_escape_string($channelName)."';");
+			}
 			$i = 0;
 			while ($row = mysql_fetch_object($query))
 			{
@@ -163,9 +179,14 @@
 			return $array;
 		}
 
-		function RetrieveStudioList()
+		function RetrieveStudioList($offset = null)
 		{
-			$query = mysql_query("SELECT * FROM studio;", $this->mysqlConn);
+			if($offset != null)
+			{
+			$query = mysql_query("SELECT * FROM studio LIMIT $offest,".$this->pagination_perpage.";", $this->mysqlConn);
+			} else {
+			$query = mysql_query("SELECT * FROM studio;");
+			}
 			$i = 0;			
 			while($idObject = mysql_fetch_object($query))
 			{
